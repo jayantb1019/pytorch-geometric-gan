@@ -76,11 +76,11 @@ class DCGAN_G(nn.Module):
 
         main = nn.Sequential()
         # input is Z, going into a convolution
-        main.add_module('initial.{0}-{1}.convt'.format(nz, cngf),
+        main.add_module('initial-{0}-{1}.convt'.format(nz, cngf),
                         nn.ConvTranspose2d(nz, cngf, 4, 1, 0, bias=False))
-        main.add_module('initial.{0}.batchnorm'.format(cngf),
+        main.add_module('initial-{0}.batchnorm'.format(cngf),
                         nn.BatchNorm2d(cngf))
-        main.add_module('initial.{0}.relu'.format(cngf),
+        main.add_module('initial-{0}.relu'.format(cngf),
                         nn.ReLU(True))
 
         csize, cndf = 4, cngf
@@ -191,9 +191,9 @@ class DCGAN_G_nobn(nn.Module):
             tisize = tisize * 2
 
         main = nn.Sequential()
-        main.add_module('initial.{0}-{1}.convt'.format(nz, cngf),
+        main.add_module('initial-{0}-{1}.convt'.format(nz, cngf),
                         nn.ConvTranspose2d(nz, cngf, 4, 1, 0, bias=False))
-        main.add_module('initial.{0}.relu'.format(cngf),
+        main.add_module('initial-{0}.relu'.format(cngf),
                         nn.ReLU(True))
 
         csize, cndf = 4, cngf
