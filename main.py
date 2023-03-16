@@ -350,13 +350,13 @@ else: # opt.gtrain == 'practice'
 
 # init cuda
 if opt.cuda:
-    netD.cuda()
-    netG.cuda()
-    criterion_R.cuda()
-    criterion_F.cuda()
-    criterion_G.cuda()
-    input, label = input.cuda(), label.cuda()
-    noise, fixed_noise = noise.cuda(), fixed_noise.cuda()
+    netD.to('cuda')
+    netG.to('cuda')
+    criterion_R.to('cuda')
+    criterion_F.to('cuda')
+    criterion_G.to('cuda')
+    input, label = input.to('cuda'), label.to('cuda')
+    noise, fixed_noise = noise.to('cuda'), fixed_noise.to('cuda')
 
 
 # convert to autograd variable
