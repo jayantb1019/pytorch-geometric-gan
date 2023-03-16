@@ -447,7 +447,7 @@ for epoch in range(opt.niter):
                         weight_proj_l2norm(p)
 
             data_tm_start = time.time()
-            data = data_iter.next()
+            data = next(data_iter)
             data_tm_end   = time.time()
             i += 1
 
